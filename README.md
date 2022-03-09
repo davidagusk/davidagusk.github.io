@@ -1,2 +1,4 @@
 # davidagusk.github.io
-Welcome
+
+- 👋 Hi, I’m David
+- 👀 Thanks For Coming
