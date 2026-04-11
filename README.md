@@ -18,6 +18,6 @@ Let's collaborate on your next project! You can reach me at [Instagram](https://
 
 ## Let's Connect
 - LinkedIn: [David Agus Kuncoro](https://www.linkedin.com/in/david-agus-kuncoro-35a9a18a/)
-- Instagram: [@davidagus](https://www.instagram.com/davidagusk)
+- Instagram: [@davidagusk](https://www.instagram.com/davidagusk)
 
 Looking forward to working with you!
