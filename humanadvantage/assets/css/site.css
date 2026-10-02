@@ -1,0 +1,100 @@
+.sanctuary-scroll-button {
+    display: inline-flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d8d0c4;
+    border-radius: 9999px;
+    color: #34352f;
+    transition: background-color .2s, color .2s;
+}
+
+.sanctuary-scroll-button:hover {
+    background: #34352f;
+    color: #fff;
+}
+
+#sanctuary-slider {
+    scrollbar-width: none;
+}
+
+#sanctuary-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.event-dropdown-menu {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.5rem);
+    border-radius: 0.25rem;
+    transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+}
+
+.event-dropdown.is-open .event-dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.event-dropdown-arrow {
+    transition: transform .22s ease;
+}
+
+.event-dropdown.is-open .event-dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.event-dropdown-menu a {
+    display: block;
+    padding: 0.65rem 1rem;
+    color: #4a4a43;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.event-dropdown-menu a:hover,
+.event-dropdown-menu a:focus {
+    color: #252620;
+    background: #f1eee8;
+}
+
+body {
+    animation: pageFadeIn .7s ease-out both;
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body { animation: none; }
+    .event-dropdown-menu,
+    .event-dropdown-arrow { transition: none; }
+}
+
+/* Reveal content as it enters the viewport while scrolling. */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
