@@ -601,7 +601,9 @@ ul {
 }
 .hero__name .thin {
   font-weight: 300;
-  color: var(--ink-dim);
+  /* bright enough that the magenta/cyan ghosts don't dominate the thinner
+     strokes — a dim fill made the first line read as a rendering artifact */
+  color: #cdc4e4;
 }
 /* the ghost layers inherit the gradient/thin treatment badly on multi-line
    headings, so keep the fringe to a single flat colour per line */
