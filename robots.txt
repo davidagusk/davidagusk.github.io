@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Portfolio is a single page; keep crawlers out of git internals only.
+Disallow: /.git/
+
+Sitemap: https://davidagusk.github.io/sitemap.xml

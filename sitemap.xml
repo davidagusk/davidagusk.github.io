@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://davidagusk.github.io/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://davidagusk.github.io/assets/img/og-image.jpg</image:loc>
+      <image:title>David Agus Kuncoro — Web Developer &amp; Digital Artist</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidagusk.github.io/assets/img/davidagusk.webp</image:loc>
+      <image:title>Portrait of David Agus Kuncoro</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidagusk.github.io/assets/img/thehhpack.webp</image:loc>
+      <image:title>The HH Pack — dog service website</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidagusk.github.io/assets/img/tritaksubali.webp</image:loc>
+      <image:title>Tri Taksu Bali — premium travel and villas website</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidagusk.github.io/assets/img/muraproject-new.webp</image:loc>
+      <image:title>Badan Penelitian dan Pengembangan Kabupaten Musi Rawas website</image:title>
+    </image:image>
+  </url>
+</urlset>

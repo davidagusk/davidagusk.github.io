@@ -1,0 +1,33 @@
+{
+  "name": "David Agus Kuncoro — Web Developer & Digital Artist",
+  "short_name": "David Agus",
+  "description": "Freelance web developer and digital artist from Indonesia. React, Next.js, PHP. Available for hire worldwide.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050308",
+  "theme_color": "#050308",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["portfolio", "business", "design"],
+  "icons": [
+    {
+      "src": "assets/img/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
