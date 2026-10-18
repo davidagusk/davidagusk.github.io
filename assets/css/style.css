@@ -781,10 +781,16 @@ ul {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: var(--bg-2);
+  /* the portrait is a tall 480x752 frame; cap it so the About column
+     doesn't stretch to 1.5x the height of the copy beside it */
+  aspect-ratio: 4 / 5;
 }
 .about__portrait img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  /* bias the crop upward — the subject stands in the lower two thirds */
+  object-fit: cover;
+  object-position: 50% 32%;
   filter: saturate(1.05) contrast(1.05);
 }
 .about__portrait::after {
