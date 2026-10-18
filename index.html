@@ -1,548 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>David Agus Kuncoro — Web Developer &amp; Digital Artist</title>
+    <meta
+      name="description"
+      content="David Agus Kuncoro — Full Stack Web Developer and digital visual artist. I design and code fun, clean, thoughtful interfaces for the web."
+    />
+    <meta name="theme-color" content="#050308" />
+    <meta property="og:title" content="David Agus Kuncoro — Web Developer & Digital Artist" />
+    <meta property="og:description" content="Design & code for web. Fun UI, clean patterns, thoughtful interactions." />
+    <meta property="og:type" content="website" />
+    <link rel="preload" href="assets/fonts/space-grotesk-300-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/jetbrains-mono-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- ambient light field -->
+    <div class="field" aria-hidden="true">
+      <div class="bloom bloom--magenta"></div>
+      <div class="bloom bloom--violet"></div>
+      <div class="bloom bloom--cyan"></div>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#000" />
-    <meta name="description" content="David Agus Kuncoro | Portfolio, Visit and know about me & my projects/designs." />
-    <meta name="keywords" content="david agus kuncoro,david agus kuncoro portfolio,david agus kuncoro Portfolio,david agus kuncoro site" />
-    <meta name="author" content="David Agus Kuncoro" />
-    <meta property="og:title" content="David Agus Kuncoro | Portfolio" />
-    <meta property="og:description" content="Hi! My name is David. I'm a web developer and digital visual. Visit and know about me & my projects/designs." />
-    <meta property="og:url" content="https://davidagusk.github.io/" />
-    <meta property="og:site_name" content="David Agus Kuncoro Portfolio" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@davidagusk" />
-    <meta name="twitter:title" content="David Agus Kuncoro | Portfolio" />
-    <meta name="twitter:description" content="Hi! My name is David. I'm a web developer and digital visual. Visit and know about me & my projects/designs." />
-    <title>David Agus Kuncoro | Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="src/png/main-favicon.png" />
-    <!-- aos cdn -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- stylesheet -->
-    <link rel="stylesheet" href="assets/style.css" />
-    <!-- google fonts-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Orbitron&family=Fira+Code&family=Six+Caps" />
+    <!-- ================= NAV ================= -->
+    <header class="nav" id="nav">
+      <a class="nav__brand" href="#home" aria-label="David Agus Kuncoro — home">
+        <img class="nav__avatar" src="assets/img/nav-avatar.png" alt="" />
+        <span><b>david</b>agusk</span>
+      </a>
 
-<body class="body">
-    <audio loop="" id="audioPlayer" style="display: none">
-        <source src="src/mp3/preloader.mp3" type="audio/mp3" />
-    </audio>
-    <div id="preloader"></div>
-    <noscript>Allow Javascript</noscript>
-    <header>
-        <div class="cursor-inner" id="cursor-inner"></div>
-        <div class="cursor-outer" id="cursor-outer"></div>
-        <div class="navbar" id="navbar">
-            <div class="hey">Hey!</div>
-            <div class="logo" tabindex="0" aria-label="davidagusk logo">
-                <div class="logo-top">
-                    <img src="src/png/nav-avatar.png" alt="animation-head" id="nav-avatar" />
-                </div>
-            </div>
-            <div class="navbar-tabs" id="navbar-tabs">
-                <ul class="navbar-tabs-ul">
-                    <li class="home activeThistab" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="100">
-                        <a href="#home" tabindex="0" aria-label="Home menu button">
-                            &#60;/Home&#62;
-                        </a>
-                    </li>
-                    <li class="about" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="300">
-                        <a href="#about" aria-label="about menu button">
-                            &#60;/AboutMe&#62;
-                        </a>
-                    </li>
-                    <li class="skills" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="500">
-                        <a href="#skills" aria-label="skills menu button">
-                            &#60;/Skills&#62;
-                        </a>
-                    </li>
-                    <li class="projects" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="700">
-                        <a href="#projects" aria-label="projects menu button">
-                            &#60;/Projects&#62;
-                        </a>
-                    </li>
-                    <li class="ea" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="700">
-                        <a href="https://drive.google.com/drive/folders/14LnLm8vb06yWy-XlejFN31iFHg4Hbzuy?usp=sharing" aria-label="ea menu button">
-                            &#60;/EA MT5&#62;
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- navbar tabs ends -->
-        </div>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#home" class="is-active">&lt;/Home&gt;</a>
+        <a href="#about">&lt;/AboutMe&gt;</a>
+        <a href="#skills">&lt;/Skills&gt;</a>
+        <a href="#projects">&lt;/Projects&gt;</a>
+        <a href="#videos">&lt;/Videos&gt;</a>
+      </nav>
+
+      <a
+        class="nav__cta"
+        href="https://drive.google.com/drive/folders/14LnLm8vb06yWy-XlejFN31iFHg4Hbzuy?usp=sharing"
+        target="_blank"
+        rel="noopener"
+        >&lt;/EA MT5&gt;</a
+      >
+
+      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="sheet">
+        <i></i><i></i><i></i>
+      </button>
     </header>
-    <!-- header ends here -->
-    <main>
-        <!-- hamburger -->
-        <div class="hamburger" id="hamburger" data-aos="fade">
-            <div class="hamburgerbase">
-                <button id="hamburger-button" onclick="hamburgerMenu()" tabindex="0" aria-label="Menu Button">
-                    <span class="burger-bar" id="burger-bar1"></span>
-                    <span class="burger-bar" id="burger-bar2"></span>
-                    <span class="burger-bar" id="burger-bar3"></span>
-                </button>
-            </div>
+
+    <!-- mobile sheet -->
+    <div class="sheet" id="sheet" aria-hidden="true">
+      <div class="sheet__top">
+        <span class="eyebrow">menu</span>
+        <button class="sheet__close" id="sheetClose" aria-label="Close menu">&times;</button>
+      </div>
+      <nav aria-label="Mobile">
+        <a href="#home">Home <i>01</i></a>
+        <a href="#about">About <i>02</i></a>
+        <a href="#skills">Skills <i>03</i></a>
+        <a href="#projects">Projects <i>04</i></a>
+        <a href="#videos">Videos <i>05</i></a>
+        <a href="#contact">Contact <i>06</i></a>
+      </nav>
+    </div>
+
+    <main class="shell">
+      <!-- ================= HERO ================= -->
+      <section class="hero" id="home">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="hero__veil" aria-hidden="true"></div>
+
+        <div class="hero__inner">
+          <div class="hero__status"><i></i> Available for work · 2026</div>
+
+          <h1 class="hero__name">
+            <span class="split-text" data-text="David Agus">David <span class="thin">Agus</span></span>
+            <span class="split-text" data-text="Kuncoro">Kuncoro</span>
+          </h1>
+
+          <p class="hero__role">design &amp; code for web<span class="caret" aria-hidden="true"></span></p>
+
+          <p class="hero__lede">
+            Web developer with a background in <b>digital concept art</b> and
+            <b>frontend design</b>. I love fun web UI, collaboration, and making products.
+            I value simple content structure, clean design patterns, and thoughtful interactions.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--solid" href="#projects">
+              View projects
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a class="btn btn--ghost" href="mailto:davidigol10@gmail.com">Let's talk!</a>
+          </div>
         </div>
-        <!-- hamburger -->
-        <div class="mobiletogglemenu" id="mobiletogglemenu">
-            <ul class="mobile-navbar-tabs-ul" id="mobile-ul">
-                <li id="home-mobile-tab" class="mobile-navbar-tabs-li home activeThismobiletab" onclick="hidemenubyli()">
-                    <a href="#home" tabindex="0" aria-label="Home menu button">
-                        &#60;/Home&#62;
-                    </a>
-                </li>
-                <li id="aboutme-mobile-tab" class="mobile-navbar-tabs-li about" onclick="hidemenubyli()">
-                    <a href="#about" tabindex="0" aria-label="about menu button">
-                        &#60;/AboutMe&#62;
-                    </a>
-                </li>
-                <li id="skills-mobile-tab" class="mobile-navbar-tabs-li skills" onclick="hidemenubyli()">
-                    <a href="#skills" tabindex="0" aria-label="skills menu button">
-                        &#60;/Skills&#62;
-                    </a>
-                </li>
-                <li id="projects-mobile-tab" class="mobile-navbar-tabs-li projects" onclick="hidemenubyli()">
-                    <a href="#projects" tabindex="0" aria-label="projects menu button">
-                        &#60;/Projects&#62;
-                    </a>
-                </li>
-                <li id="ea-mobile-tab" class="mobile-navbar-tabs-li ea" onclick="hidemenubyli()">
-                    <a href="https://drive.google.com/drive/folders/14LnLm8vb06yWy-XlejFN31iFHg4Hbzuy?usp=sharing" tabindex="0" aria-label="Ea menu button">
-                        &#60;/EA MT5&#62;
-                    </a>
-                </li>
+
+        <div class="hero__scroll" aria-hidden="true"><span></span> scroll</div>
+      </section>
+
+      <!-- ================= MARQUEE ================= -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Full Stack Developer</span><span>UI / UX</span><span>Digital Concept Art</span>
+          <span>React &amp; Next.js</span><span>Clean Interfaces</span><span>Interactive Web</span>
+          <span>Full Stack Developer</span><span>UI / UX</span><span>Digital Concept Art</span>
+          <span>React &amp; Next.js</span><span>Clean Interfaces</span><span>Interactive Web</span>
+        </div>
+      </div>
+
+      <!-- ================= ABOUT ================= -->
+      <section class="section" id="about">
+        <div class="wrap">
+          <div class="section__head">
+            <div>
+              <div class="eyebrow" data-reveal>about me</div>
+              <h2 class="section__title" data-reveal>&lt;/AboutMe&gt;</h2>
+            </div>
+            <p class="section__note" data-reveal>
+              <b>//</b> Full stack web developer<br />
+              <b>//</b> digital visual artist<br />
+              <b>//</b> building since 2021
+            </p>
+          </div>
+
+          <div class="about__grid">
+            <div class="about__portrait" data-reveal>
+              <img src="assets/img/davidagusk.webp" alt="Portrait of David Agus Kuncoro" />
+              <span class="about__frame" aria-hidden="true"></span>
+              <span class="about__tag">David · Indonesia</span>
+            </div>
+
+            <div class="about__body" data-reveal>
+              <p>
+                Hi! My name is David. I'm a <strong>Full Stack Web Developer</strong> and digital
+                visual artist. I love crafting and building interactive experiences on the web. My
+                passion for web development began when I started uploading my digital concept
+                artworks and wanted a custom space to showcase them online.
+              </p>
+              <p>
+                Instead of just creating an online gallery, I found myself fascinated by the process
+                of developing and designing for the web. That curiosity led me deeper into coding,
+                UI/UX, and the creative possibilities of interactive websites.
+              </p>
+              <p>
+                These days, my main focus is designing fun, clean, and thoughtful web interfaces. I
+                love coding from scratch and enjoy transforming ideas into functional, beautiful
+                websites right in the browser.
+              </p>
+
+              <div class="about__meta">
+                <div>Focus<b>Web interfaces</b></div>
+                <div>Stack<b>React · Next · PHP</b></div>
+                <div>Also<b>Concept art</b></div>
+                <div>Based in<b>Indonesia</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SKILLS ================= -->
+      <section class="section" id="skills">
+        <div class="wrap">
+          <div class="section__head">
+            <div>
+              <div class="eyebrow" data-reveal>toolkit</div>
+              <h2 class="section__title" data-reveal><em>&lt;/Skills&gt;</em></h2>
+            </div>
+            <p class="section__note" data-reveal>
+              <b>20</b> tools across code,<br />
+              design and motion.
+            </p>
+          </div>
+
+          <div class="skills__group" data-reveal>
+            <div class="skills__label">Web &amp; languages</div>
+            <ul class="skills__grid">
+              <li class="skill"><img src="assets/img/htmllogo.png" alt="" /><span>HTML</span></li>
+              <li class="skill"><img src="assets/img/csslogo.png" alt="" /><span>CSS</span></li>
+              <li class="skill"><img src="assets/img/jslogo.png" alt="" /><span>JS</span></li>
+              <li class="skill"><img src="assets/img/phplogo.png" alt="" /><span>PHP</span></li>
+              <li class="skill"><img src="assets/img/clogo.png" alt="" /><span>C</span></li>
+              <li class="skill"><img src="assets/img/cpplogo.png" alt="" /><span>C++</span></li>
             </ul>
+          </div>
+
+          <div class="skills__group" data-reveal>
+            <div class="skills__label">Frameworks &amp; tooling</div>
+            <ul class="skills__grid">
+              <li class="skill"><img src="assets/img/tailwindlogo.png" alt="" /><span>Tailwind</span></li>
+              <li class="skill"><img src="assets/img/bootstraplogo.png" alt="" /><span>Bootstrap</span></li>
+              <li class="skill"><img src="assets/img/reactlogo.png" alt="" /><span>ReactJS</span></li>
+              <li class="skill"><img src="assets/img/nextlogo.png" alt="" /><span>NextJS</span></li>
+              <li class="skill"><img src="assets/img/node.png" alt="" /><span>NodeJS</span></li>
+              <li class="skill"><img src="assets/img/githublogo.png" alt="" /><span>GitHub</span></li>
+              <li class="skill"><img src="assets/img/gitlogo.png" alt="" /><span>Git</span></li>
+              <li class="skill"><img src="assets/img/androidlogo.png" alt="" /><span>Android Studio</span></li>
+            </ul>
+          </div>
+
+          <div class="skills__group" data-reveal>
+            <div class="skills__label">Design &amp; motion</div>
+            <ul class="skills__grid">
+              <li class="skill"><img src="assets/img/figmalogo.png" alt="" /><span>Figma</span></li>
+              <li class="skill"><img src="assets/img/pslogo.png" alt="" /><span>Adobe PS</span></li>
+              <li class="skill"><img src="assets/img/ailogo.png" alt="" /><span>Adobe AI</span></li>
+              <li class="skill"><img src="assets/img/prlogo.png" alt="" /><span>Adobe PR</span></li>
+              <li class="skill"><img src="assets/img/aelogo.png" alt="" /><span>Adobe AE</span></li>
+              <li class="skill"><img src="assets/img/aulogo.png" alt="" /><span>Adobe AU</span></li>
+            </ul>
+          </div>
         </div>
-        <!-- mobile toggle menu ends -->
-        <section class="landing-page-container" id="home">
-            <div class="blob"></div>
-            <div class="text-content">
-                <article id="hello-friend" data-aos="fade-up" data-aos-delay="0">
-                    <p class="jello">N</p>
-                    <p class="jello">a</p>
-                    <p class="jello">m</p>
-                    <p class="jello">a</p>
-                    <p class="jello">s</p>
-                    <p class="jello">t</p>
-                    <p class="jello">e</p>
-                    <p class="jello">(</p>
-                    <p class="jello">)</p>
-                    <p class="jello">;</p>
-                    &nbsp;
-                    <p class="jello">I</p>
-                    <p class="jello">'</p>
-                    <p class="jello">m</p>
-                </article>
-                <article id="name" data-aos="fade-up" data-aos-delay="200">
-                    <p class="jello">D</p>
-                    <p class="jello">a</p>
-                    <p class="jello">v</p>
-                    <p class="jello">i</p>
-                    <p class="jello">d</p>
-                    &nbsp;
-                    <p class="jello">A</p>
-                    <p class="jello">g</p>
-                    <p class="jello">u</p>
-                    <p class="jello">s</p>
-                    &nbsp;
-                    <p class="jello">K</p>
-                    <p class="jello">u</p>
-                    <p class="jello">n</p>
-                    <p class="jello">c</p>
-                    <p class="jello">o</p>
-                    <p class="jello">r</p>
-                    <p class="jello">o</p>
-                    <p class="jello">.</p>
-                </article>
-                <article id="work" data-aos="fade-up" data-aos-delay="400">
-                    <div>
-                        <p class="jello">I</p>
-                    </div>
-                    <div>
-                        <p class="jello">d</p>
-                        <p class="jello">e</p>
-                        <p class="jello">s</p>
-                        <p class="jello">i</p>
-                        <p class="jello">g</p>
-                        <p class="jello">n</p>
-                    </div>
-                    <div>
-                        <p class="jello">&</p>
-                    </div>
-                    <div>
-                        <p class="jello">c</p>
-                        <p class="jello">o</p>
-                        <p class="jello">d</p>
-                        <p class="jello">e</p>
-                    </div>
-                    <div>
-                        <p class="jello">f</p>
-                        <p class="jello">o</p>
-                        <p class="jello">r</p>
-                    </div>
-                    <div>
-                        <p class="jello">w</p>
-                        <p class="jello">e</p>
-                        <p class="jello">b</p>
-                        <p class="jello">.</p>
-                    </div>
-                </article>
-                <p id="info-para" data-aos="fade-up" data-aos-delay="600">
-                    Web Developer with experience of Digital Concept Arts, Frontend Web
-                    Designs. I Love fun Web UI, collaboration and making products.<br />
-                    <br />
-                    I value simple content structure, clean design patterns, and
-                    thoughtful interactions.
-                </p>
-                <div class="contact-btn-div" data-aos="fade-up" data-aos-delay="800">
-                    <a href="https://www.instagram.com/davidagusk" tabindex="-1" target="_blank">
-                        <button class="letsTalkBtn">
-                            <p class="letsTalkBtn-text">Let's Talk!</p>
-                            <span class="letsTalkBtn-BG"></span>
-                        </button></a>
-                    <div class="setting-container" id="setting-container">
-                        <input type="checkbox" id="switchforsetting" onclick="settingtoggle()" />
-                        <label for="switchforsetting" class="needtobeinvert" id="labelforsetting" tabindex="0" aria-label="settings for sound and appearance"></label>
-                        <div class="visualmodetogglebuttoncontainer" id="visualmodetogglebuttoncontainer">
-                            <input type="checkbox" id="switchforvisualmode" onclick="visualmode()" />
-                            <label for="switchforvisualmode" id="labelforvisualmode" tabindex="0" aria-label="switch appearance"></label>
-                        </div>
-                        <div class="soundtogglebuttoncontainer" id="soundtogglebuttoncontainer">
-                            <input type="checkbox" id="switchforsound" onclick="playpause()" />
-                            <label for="switchforsound" id="labelforsound" tabindex="0" aria-label="switch sound" class="needtobeinvert"></label>
-                        </div>
-                    </div>
-                    <!-- setting div ends -->
-                </div>
-                <!-- contact-btn-div -->
+      </section>
+
+      <!-- ================= PROJECTS ================= -->
+      <section class="section" id="projects">
+        <div class="wrap">
+          <div class="section__head">
+            <div>
+              <div class="eyebrow" data-reveal>selected work</div>
+              <h2 class="section__title" data-reveal>&lt;/Projects&gt;</h2>
             </div>
-        </section>
-        <!-- landing page ends here -->
-        <section class="about-section-container" id="about" data-aos="fade-up">
-            <div class="about-section">
-                <div class="section-heading">
-                    <h2 class="section-heading-article" tabindex="0" aria-label="About me heading">
-                        &#60;/AboutMe&#62;
-                    </h2>
-                    <p class="sectionHeadingP"></p>
+            <p class="section__note" data-reveal>
+              Three live sites — <b>service</b>,<br />
+              <b>travel</b>, and <b>government</b>.
+            </p>
+          </div>
+
+          <div class="projects__list">
+            <a class="project" href="https://thehhpack.com/" target="_blank" rel="noopener" data-reveal>
+              <div class="project__media">
+                <img src="assets/img/thehhpack.webp" alt="The HH Pack website preview" />
+                <span class="project__glitch" style="--proj-img: url('assets/img/thehhpack.webp')" aria-hidden="true"></span>
+              </div>
+              <div class="project__body">
+                <img class="project__logo" src="assets/img/logothehhpack.webp" alt="" />
+                <div class="project__text">
+                  <h3 class="project__name">The HH Pack</h3>
+                  <p class="project__desc">Information website about dog service and contacts.</p>
                 </div>
-                <div class="info-dp-section">
-                    <div class="about-info">
-                        <p tabindex="0">
-                            Hi! My name is David. I'm a Full Stack Web Developer and digital visual artist. I love crafting and building interactive experiences on the web. My passion for web development began when I started uploading my digital concept artworks and wanted a custom space to showcase them online.
-                        </p>
-                        <br />
-                        <p tabindex="0">
-                            Instead of just creating an online gallery, I found myself fascinated by the process of developing and designing for the web. That curiosity led me deeper into coding, UI/UX, and the creative possibilities of interactive websites.
-                        </p>
-                        <br />
-                        <p tabindex="0">
-                            These days, my main focus is designing fun, clean, and thoughtful web interfaces. I love coding from scratch and enjoy transforming ideas into functional, beautiful websites right in the browser.
-                        </p>
-                    </div>
-                    <div class="dp" data-aos="fade-up">
-                        <img src="src/webp/davidagusk.webp" alt="David Agus Kuncoro" tabindex="0" aria-label="image of david" />
-                    </div>
+                <span class="project__link">
+                  Live view
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+
+            <a class="project" href="https://tritaksubali.com/" target="_blank" rel="noopener" data-reveal>
+              <div class="project__media">
+                <img src="assets/img/tritaksubali.webp" alt="Tri Taksu Bali website preview" />
+                <span class="project__glitch" style="--proj-img: url('assets/img/tritaksubali.webp')" aria-hidden="true"></span>
+              </div>
+              <div class="project__body">
+                <img class="project__logo" src="assets/img/logotritaksubali.webp" alt="" />
+                <div class="project__text">
+                  <h3 class="project__name">Tri Taksu Bali</h3>
+                  <p class="project__desc">Information website about Premium Travel &amp; Villas in Bali.</p>
                 </div>
+                <span class="project__link">
+                  Live view
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="project"
+              href="https://balitbang.musirawaskab.go.id/"
+              target="_blank"
+              rel="noopener"
+              data-reveal
+            >
+              <div class="project__media">
+                <img src="assets/img/muraproject-new.webp" alt="Balitbang Musi Rawas website preview" />
+                <span class="project__glitch" style="--proj-img: url('assets/img/muraproject-new.webp')" aria-hidden="true"></span>
+              </div>
+              <div class="project__body">
+                <img class="project__logo" src="assets/img/logomura.webp" alt="" />
+                <div class="project__text">
+                  <h3 class="project__name">Badan Penelitian dan Pengembangan Kabupaten Musi Rawas</h3>
+                  <p class="project__desc">Information website about company and contacts.</p>
+                </div>
+                <span class="project__link">
+                  Live view
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= VIDEOS ================= -->
+      <section class="section" id="videos">
+        <div class="wrap">
+          <div class="section__head">
+            <div>
+              <div class="eyebrow" data-reveal>motion</div>
+              <h2 class="section__title" data-reveal><em>&lt;/Videos&gt;</em></h2>
             </div>
-        </section>
-        <!-- about section ends  -->
-        <section class="skills-section-container" id="skills">
-            <div class="skills-section">
-                <div class="section-heading" data-aos="fade-up">
-                    <h2 class="section-heading-article" tabindex="0" aria-label="skills heading">
-                        &#60;/Skills&#62;
-                    </h2>
-                    <p class="sectionHeadingP"></p>
-                </div>
-                <div class="frontend-dev-section">
-                    <h3 class="frontend-dev-heading" data-aos="fade-up" tabindex="0" aria-label="As a frontend a developer these are the skills i have">
-                        Tech Stack
-                    </h3>
-                    <ul class="tech-stack-wrapper">
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/htmllogo.png" alt="Html skill" class="tech-stack-logo" />
-                            <span class="tooltip">HTML</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/csslogo.png" alt="css skill" class="tech-stack-logo" />
-                            <span class="tooltip">CSS</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/jslogo.png" alt="js skill" class="tech-stack-logo" />
-                            <span class="tooltip">JS</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/phplogo.png" alt="php skill" class="tech-stack-logo" />
-                            <span class="tooltip">PHP</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/tailwindlogo.png" alt="tailwind skill" class="tech-stack-logo" />
-                            <span class="tooltip">TAILWIND</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/bootstraplogo.png" alt="bootstrap skill" class="tech-stack-logo" />
-                            <span class="tooltip">BOOTSTRAP</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/reactlogo.png" alt="react skill" class="tech-stack-logo" />
-                            <span class="tooltip">REACTJS</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/nextlogo.png" alt="nextjs skill" class="tech-stack-logo" />
-                            <span class="tooltip">NEXTJS</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/node.png" alt="nodejs skill" class="tech-stack-logo" />
-                            <span class="tooltip">NODEJS</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/githublogo.png" alt="github skill" class="tech-stack-logo needtobeinvert" />
-                            <span class="tooltip">GITHUB</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/gitlogo.png" alt="git skill" class="tech-stack-logo" />
-                            <span class="tooltip">GIT</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/clogo.png" alt="c language skill" class="tech-stack-logo" />
-                            <span class="tooltip">C</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/cpplogo.png" alt="c++ language skill" class="tech-stack-logo" />
-                            <span class="tooltip">C++</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/androidlogo.png" alt="android studio skill" class="tech-stack-logo" />
-                            <span class="tooltip">ANDROID STUDIO</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/figmalogo.png" alt="figma skill" class="tech-stack-logo" />
-                            <span class="tooltip">FIGMA</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/pslogo.png" alt="photoshop skill" class="tech-stack-logo" />
-                            <span class="tooltip">ADOBE PS</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/ailogo.png" alt="adobe illustrator skill" class="tech-stack-logo" />
-                            <span class="tooltip">ADOBE AI</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/prlogo.png" alt="adobe premiere pro skill" class="tech-stack-logo" />
-                            <span class="tooltip">ADOBE PR</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/aelogo.png" alt="adobe after effect skill" class="tech-stack-logo" />
-                            <span class="tooltip">ADOBE AE</span>
-                        </li>
-                        <li class="tech-stack-box" data-aos="fade-up">
-                            <img src="./src/png/aulogo.png" alt="adobe audition skill" class="tech-stack-logo" />
-                            <span class="tooltip">ADOBE AU</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <!-- skills section ends -->
-        <section class="projects-section-container" id="projects">
-            <div class="projects-section-div">
-                <div class="section-heading" data-aos="fade-up">
-                    <h2 class="section-heading-article" tabindex="0" aria-label="My projects starts from here">
-                        &#60;/Projects&#62;
-                    </h2>
-                    <p class="sectionHeadingP"></p>
-                </div>
-                <div class="project-boxes-div">
-                    <!-- ---------------------- -->
-                    <div class="project-box-wrapper" data-aos="fade-up">
-                        <div class="project-box project-box5" id="project-box5">
-                            <div class="info-div">
-                                <img src="src/webp/logothehhpack.webp" alt="thehhpack website favicon" class="faviconforProject" />
-                                <article class="ProjectHeading">The HH Pack</article>
-                                <p class="ProjectDescription">
-                                    Information website about dog service and contacts.
-                                </p>
-                                <div class="project-buttons">
-                                    <a href="https://thehhpack.com/" target="_blank" class="cta" aria-label="Visit thehhpack live">
-                                        <span>Live view</span>
-                                        <svg viewBox="0 0 13 10" height="10px" width="15px">
-                                            <path d="M1,5 L11,5"></path>
-                                            <polyline points="8 1 12 5 8 9"></polyline>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="image-div">
-                                <img src="src/webp/thehhpack.webp" alt="balitbang website preview image" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ---------------------- -->
-                    <!-- ---------------------- -->
-                    <div class="project-box-wrapper" data-aos="fade-up">
-                        <div class="project-box project-box5" id="project-box5">
-                            <div class="info-div">
-                                <img src="src/webp/logotritaksubali.webp" alt="tritaksubali website favicon" class="faviconforProject" />
-                                <article class="ProjectHeading">Tri Taksu Bali</article>
-                                <p class="ProjectDescription">
-                                    Information website about Premium Travel &amp; Villas in Bali.
-                                </p>
-                                <div class="project-buttons">
-                                    <a href="https://tritaksubali.com/" target="_blank" class="cta" aria-label="Visit tritaksubali live">
-                                        <span>Live view</span>
-                                        <svg viewBox="0 0 13 10" height="10px" width="15px">
-                                            <path d="M1,5 L11,5"></path>
-                                            <polyline points="8 1 12 5 8 9"></polyline>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="image-div">
-                                <img src="src/webp/tritaksubali.webp" alt="balitbang website preview image" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ---------------------- -->
-                    <!-- ---------------------- -->
-                    <div class="project-box-wrapper" data-aos="fade-up">
-                        <div class="project-box project-box5" id="project-box5">
-                            <div class="info-div">
-                                <img src="src/webp/logomura.webp" alt="balitbang website favicon" class="faviconforProject" />
-                                <article class="ProjectHeading">Badan Penelitian dan Pengembangan Kabupaten Musi Rawas</article>
-                                <p class="ProjectDescription">
-                                    Information website about company and contacts.
-                                </p>
-                                <div class="project-buttons">
-                                    <a href="https://balitbang.musirawaskab.go.id/" target="_blank" class="cta" aria-label="Visit Balitbang live">
-                                        <span>Live view</span>
-                                        <svg viewBox="0 0 13 10" height="10px" width="15px">
-                                            <path d="M1,5 L11,5"></path>
-                                            <polyline points="8 1 12 5 8 9"></polyline>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="image-div">
-                                <img src="src/webp/muraproject-new.webp" alt="balitbang website preview image" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ---------------------- -->
-                </div>
-            </div>
-        </section>
+            <p class="section__note" data-reveal>
+              Shot and cut on the road.<br />
+              <b>Click</b> to play.
+            </p>
+          </div>
+
+          <div class="videos__grid">
+            <article class="video" data-reveal>
+              <button
+                class="video__facade"
+                type="button"
+                data-video="5PfkSFijTjQ"
+                aria-label="Play video: BALI FIRST TRIP"
+              >
+                <img src="assets/img/yt-5PfkSFijTjQ.jpg" alt="BALI FIRST TRIP video thumbnail" />
+                <span class="video__play" aria-hidden="true"><i></i></span>
+              </button>
+              <div class="video__meta">
+                <h3>BALI FIRST TRIP</h3>
+                <p>MrD4x · Travel film</p>
+              </div>
+            </article>
+
+            <article class="video" data-reveal>
+              <button
+                class="video__facade"
+                type="button"
+                data-video="8y_vVWzLpVM"
+                aria-label="Play video: MR AND MRS KLIK TRIP BALI"
+              >
+                <img src="assets/img/yt-8y_vVWzLpVM.jpg" alt="MR AND MRS KLIK TRIP BALI video thumbnail" />
+                <span class="video__play" aria-hidden="true"><i></i></span>
+              </button>
+              <div class="video__meta">
+                <h3>MR AND MRS KLIK TRIP BALI</h3>
+                <p>Mr Mrs Klik · Travel vlog</p>
+              </div>
+            </article>
+
+            <article class="video" data-reveal>
+              <button
+                class="video__facade"
+                type="button"
+                data-video="yUNhwnmFT0A"
+                aria-label="Play video: TRIP BEDUGUL WITH BRO ANGKRINGAN BRO FIRENDS"
+              >
+                <img src="assets/img/yt-yUNhwnmFT0A.jpg" alt="TRIP BEDUGUL video thumbnail" />
+                <span class="video__play" aria-hidden="true"><i></i></span>
+              </button>
+              <div class="video__meta">
+                <h3>TRIP BEDUGUL WITH BRO ANGKRINGAN</h3>
+                <p>Mr Mrs Klik · Travel vlog</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACT ================= -->
+      <section class="contact" id="contact">
+        <div class="wrap contact__inner">
+          <p class="contact__kicker" data-reveal>GetinTouch();</p>
+          <h2 class="contact__title split-text" data-text="Let's build" data-reveal>Let's build</h2>
+          <p class="contact__line" data-reveal>
+            Have a product, a site, or an idea that needs shape? I'm always up for a good
+            collaboration.
+          </p>
+          <a class="contact__mail" href="mailto:davidigol10@gmail.com" data-reveal>
+            davidigol10@gmail.com
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <div class="contact__socials" data-reveal>
+            <a href="https://www.instagram.com/davidagusk/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://github.com/davidagusk" target="_blank" rel="noopener">GitHub</a>
+            <a
+              href="https://drive.google.com/drive/folders/14LnLm8vb06yWy-XlejFN31iFHg4Hbzuy?usp=sharing"
+              target="_blank"
+              rel="noopener"
+              >EA MT5</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="wrap footer__row">
+          <span><b>© MrD4x 2025 — 2026</b></span>
+          <span class="footer__quote">"Learning, Living, and Leveling Up."</span>
+          <span>Built from scratch · <b>HTML / CSS / JS</b></span>
+        </div>
+      </footer>
     </main>
-    <!-- main ends here -->
-    <footer id="footer">
-        <button class="fas" id="backtotopbutton" onclick="scrolltoTopfunction()">
-            <article aria-label="Back to top">&#8592;BACK TO TOP</article>
-        </button>
-        <div class="footer-background">
-            <div class="footer-blob"></div>
-        </div>
-        <div class="footer-foreground">
-            <div class="footercontainer">
-                <div class="two-words">
-                    <article tabindex="0" aria-label="Learning, Living, and Leveling Up, my quote">
-                        "Learning, Living, and Leveling Up."
-                    </article>
-                </div>
-                <div class="social-media-container">
-                    <div class="getintouch-heading">
-                        <article>GetinTouch();</article>
-                    </div>
-                    <div class="logos">
-                        <a href="https://www.instagram.com/davidagusk/" target="_blank" tabindex="0" aria-label="My instagram"><svg viewBox="0 0 448 512" class="SocialHandle">
-                                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                            </svg></a>
-                        <a href="https://t.me/+-eY_P4C1YpxmMmQ9" target="_blank" tabindex="0" aria-label="My Telegram">
-                            <svg viewBox="0 0 496 512" class="SocialHandle">
-                                <path d="M248 8C111 8 0 119 0 256s111 248 248 248 
-                                248-111 248-248S385 8 248 8zm114.9 169.3-40.7 
-                                191.8c-3.1 13.8-11.4 17.2-23.1 10.7l-63.9-47.1
-                                -30.8 29.6c-3.4 3.4-6.3 6.3-12.9 6.3l4.6-65.1
-                                118.5-107c5.2-4.6-1.1-7.2-8.1-2.6L159.6 286.6
-                                96.5 267c-13.7-4.3-14-13.7 2.9-20.3l246.6-95.1
-                                c11.4-4.3 21.4 2.7 17.9 17.7z"/>
-                            </svg></a>
-                        <a href="https://www.linkedin.com/in/david-agus-kuncoro-35a9a18a/" target="_blank" aria-label="My Linkdin"><svg class="SocialHandle" viewBox="0 0 448 512">
-                                <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
-                            </svg></a>
-                        <a href="https://github.com/davidagusk" target="_blank" aria-label="My github"><svg viewBox="0 0 496 512" class="SocialHandle">
-                                <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
-                            </svg></a>
-                        <a href="mailto:davidigol10@gmail.com" target="_blank" aria-label="My G mail"><svg id="GmailLogo" viewBox="0 0 512 512">
-                                <path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
-                            </svg></a>
-                    </div>
-                </div>
-                <div class="footer-avatar-container">
-                    <img src="src/png/footer-avatar-david.png" alt="animation-head" class="footer-avatar-img" id="footer-wala-avatar" />
-                    <div class="footer-avatar-face">
-                        <div class="footer-avatar-eye footer-left-eye">
-                            <div class="footer-pupil"></div>
-                        </div>
-                        <div class="footer-avatar-eye footer-right-eye">
-                            <div class="footer-pupil"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <article>
-                        &#169; MrD4x 2025 - 2026
-                    </article>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- footer ends here -->
-    <!-- <div id="saweria-qr" class="saweria-david">
-        <a href="https://saweria.co/davidagusk" target="_blank" aria-label="Support me on Saweria">
-            <img src="src/png/saweria.png" alt="Saweria QR Code" style="width: 150px; height: 150px; cursor: pointer; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
-        </a>
-    </div> -->
-    <script src="assets/main.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-    AOS.init();
-    </script>
-    <script>
-    const cursorInner = document.getElementById("cursor-inner");
-    const cursorOuter = document.getElementById("cursor-outer");
-    const links = document.querySelectorAll("a,label,button");
 
-    document.addEventListener("mousemove", function(e) {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        cursorInner.style.left = `${posX}px`;
-        cursorInner.style.top = `${posY}px`;
-
-        // cursorOuter.style.left = `${posX}px`;
-        // cursorOuter.style.top = `${posY}px`;
-
-        cursorOuter.animate({
-            left: `${posX}px`,
-            top: `${posY}px`,
-        }, { duration: 500, fill: "forwards" });
-
-        links.forEach((link) => {
-            link.addEventListener("mouseenter", () => {
-                cursorInner.classList.add("hover");
-                cursorOuter.classList.add("hover");
-            });
-            link.addEventListener("mouseleave", () => {
-                cursorInner.classList.remove("hover");
-                cursorOuter.classList.remove("hover");
-            });
-        });
-    });
-    </script>
-</body>
-
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
