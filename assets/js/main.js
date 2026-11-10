@@ -197,7 +197,7 @@
         pricingFoot: "Every package starts with a short discovery call. Hosting, domain, paid plugins, and copywriting are quoted separately when needed.", aboutNote: "<b>//</b> Full stack web developer<br /><b>//</b> digital visual artist<br /><b>//</b> building since 2019", projectsNote: "Three live sites — <b>service</b>,<br /><b>travel</b>, and <b>government</b>.",
         cardNames: ["Launch", "Momentum", "Signature", "Orbit"],
         cardDescs: ["A focused online presence for a personal brand or small business ready to launch.", "An online store with product browsing and ordering, without an integrated payment gateway.", "A complete online store with automatic payment processing built directly into the website.", "A fully customized commerce platform with payments, automation, integrations, and advanced business features."],
-        cardFeatures: [["Ready in 2 weeks", "Custom visual direction", "Contact or inquiry section", "Basic on-page SEO setup", "Launch-ready handoff"], ["Ready in 7–10 business days", "Online store and product catalog", "Shopping cart and order flow", "WhatsApp or manual payment confirmation", "Product and order management", "SEO structure and metadata"], ["Ready in 5–7 business days", "Complete online store and catalog", "Shopping cart and checkout flow", "Automatic payment gateway integration", "Order and payment status management", "Performance and technical SEO"], ["Ready in 3–5 business days", "Everything in Signature", "Custom storefront and admin dashboard", "Automatic payments, shipping, and order flow", "Advanced API and third-party integrations", "Automation, analytics, and performance review", "30-day post-launch support"]],
+        cardFeatures: [["Ready in 2 weeks", "Custom visual direction", "Contact or inquiry section", "Basic on-page SEO setup", "1 year support for website errors and issues", "Launch-ready handoff"], ["Ready in 7–10 business days", "Online store and product catalog", "Shopping cart and order flow", "WhatsApp or manual payment confirmation", "Product and order management", "SEO structure and metadata"], ["Ready in 5–7 business days", "Complete online store and catalog", "Shopping cart and checkout flow", "Automatic payment gateway integration", "Order and payment status management", "Performance and technical SEO", "1 year support for website errors and issues"], ["Ready in 3–5 business days", "Everything in Signature", "Custom storefront and admin dashboard", "Automatic payments, shipping, and order flow", "Advanced API and third-party integrations", "Automation, analytics, and performance review", "1 year support for website errors and issues", "30-day post-launch support"]],
         projectLabel: " / project", chat: "Chat on WhatsApp", popular: "Most popular",
         about: "</AboutMe>", skills: "</Skills>", projects: "</Projects>", videos: "</Videos>",
         contact: "Let's build", contactLine: "Have a product, a site, or an idea that needs shape? I'm always up for a good collaboration."
@@ -279,7 +279,7 @@
       setText("#pricing .section__title", t.pricing);
       setText("#pricing .section__note", t.pricingNote);
       setText(".pricing__value", t.value);
-      setHTML(".pricing__footnote", t.pricingFoot);
+      setHTML(".pricing__footnote", language === "fr" ? "Chaque offre commence par un court appel découverte. L'hébergement/serveur et le domaine sont séparés pour Lancement et Momentum. Signature et Orbit incluent un an d'hébergement/serveur, de domaine, de SSL, de mise en ligne et de sauvegarde de base. Un an de support est inclus uniquement pour corriger les erreurs et problèmes du site. Les plugins payants et la rédaction sont proposés séparément si nécessaire." : language === "id" ? "Setiap paket dimulai dengan discovery call singkat. Hosting/server dan domain terpisah untuk Launch dan Momentum. Signature dan Orbit sudah termasuk hosting/server, domain, SSL, deployment, dan setup backup dasar selama 1 tahun. Support 1 tahun hanya untuk memperbaiki error dan masalah pada website. Plugin berbayar dan copywriting dihitung terpisah bila diperlukan." : "Every package starts with a short discovery call. Hosting/server and domain are separate for Launch and Momentum. Signature and Orbit include one year of hosting/server, domain, SSL, deployment, and basic backup setup. One year of support is included only for fixing website errors and technical issues. Paid plugins and copywriting are quoted separately when needed.");
       setText("#about .section__title", t.about);
       setHTML("#about .section__note", t.aboutNote);
       setHTMLList(".about__body > p", t.aboutParagraphs);
@@ -294,9 +294,60 @@
           });
         }
       });
+      var supportText = language === "fr"
+        ? "Support pendant 1 an pour les erreurs et problèmes du site"
+        : language === "id"
+          ? "Support 1 tahun untuk error dan masalah website"
+          : "1 year support for website errors and issues";
+      document.querySelectorAll(".price-card__features li").forEach(function (feature) {
+        if (/support.*(year|tahun|an)|support.*website|support.*site|support.*error/i.test(feature.textContent)) feature.textContent = supportText;
+      });
+      document.querySelectorAll(".price-card__features").forEach(function (list, index) {
+        Array.prototype.slice.call(list.children).filter(function (item) {
+          return /support.*(year|tahun|an)|support.*website|support.*site|support.*error/i.test(item.textContent);
+        }).forEach(function (item) { item.remove(); });
+        if (index !== 1) {
+          var supportItem = document.createElement("li");
+          supportItem.textContent = supportText;
+          list.appendChild(supportItem);
+        }
+      });
+      document.querySelectorAll(".price-card__features").forEach(function (list, index) {
+        Array.prototype.slice.call(list.children).filter(function (item) {
+          return /hosting.*domain|domain.*hosting|hébergement.*domaine|domaine.*hébergement/i.test(item.textContent);
+        }).forEach(function (item) { item.remove(); });
+        if (index < 2) {
+          var excludedText = language === "fr"
+            ? "Hébergement et domaine non inclus"
+            : language === "id"
+              ? "Hosting dan domain tidak termasuk"
+              : "Hosting and domain not included";
+          var excludedItem = document.createElement("li");
+          excludedItem.textContent = excludedText;
+          list.appendChild(excludedItem);
+        }
+      });
+      document.querySelectorAll(".price-card__features").forEach(function (list, index) {
+        if (index < 2) {
+          Array.prototype.slice.call(list.children).filter(function (item) {
+            return /hosting|hébergement|domain|domaine/i.test(item.textContent);
+          }).forEach(function (item) { item.remove(); });
+        }
+      });
       setMany(".price-card__price > span", [t.projectLabel, t.projectLabel, t.projectLabel, t.projectLabel]);
       setText(".price-card__badge", t.popular);
       setMany(".price-card__cta", [t.chat, t.chat, t.chat, t.chat]);
+      var addon = language === "fr"
+        ? { eyebrow: "Option · Launch & Momentum", title: "Maintenance & Hébergement — Standard", desc: "Idéal pour le Pack Débutant. Hébergement, gestion continue et intervention en cas de bug sous 48 heures · stockage standard.", prices: ["/ mois", "/ an · économisez 1 000 000 Rp"], features: ["Domaine et hébergement achetables auprès de nous", "Gestion continue de l'hébergement", "Intervention en cas de bug sous 48 heures", "Stockage standard"], cta: "Demander le prix sur WhatsApp" }
+        : language === "id"
+          ? { eyebrow: "Add-on · Launch & Momentum", title: "Pemeliharaan & Hosting — Standar", desc: "Ideal untuk Paket Pemula. Hosting, manajemen berkelanjutan, dan intervensi jika terjadi bug dalam waktu 48 jam · penyimpanan standar.", prices: ["/ bulan", "/ tahun · hemat Rp1.000.000"], features: ["Domain dan hosting dapat dibeli melalui kami", "Manajemen hosting berkelanjutan", "Intervensi bug dalam waktu 48 jam", "Penyimpanan standar"], cta: "Tanya harga via WhatsApp" }
+          : { eyebrow: "Add-on · Launch & Momentum", title: "Maintenance & Hosting — Standard", desc: "Ideal for the Launch package. Hosting, ongoing management, and bug intervention within 48 hours · standard storage.", prices: ["/ month", "/ year · save Rp1,000,000"], features: ["Domain and hosting available through us", "Ongoing hosting management", "Bug intervention within 48 hours", "Standard storage"], cta: "Ask about pricing on WhatsApp" };
+      setText(".hosting-addon__eyebrow", addon.eyebrow);
+      setText(".hosting-addon__title", addon.title);
+      setText(".hosting-addon__desc", addon.desc);
+      setMany(".hosting-addon__prices span", addon.prices);
+      setMany(".hosting-addon__features li", addon.features);
+      document.querySelectorAll(".hosting-addon__cta").forEach(function (cta) { cta.innerHTML = addon.cta + " <span aria-hidden=\"true\">↗</span>"; });
       setText("#skills .section__title", t.skills);
       setText("#projects .section__title", t.projects);
       setHTML("#projects .section__note", t.projectsNote);
