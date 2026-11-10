@@ -1066,30 +1066,55 @@ ul {
 }
 
 .price-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
   margin-top: 22px;
   color: var(--ink);
-  font-size: clamp(32px, 3.4vw, 46px);
+  font-size: clamp(24px, 2.5vw, 38px);
+  white-space: nowrap;
   font-weight: 600;
   letter-spacing: -0.06em;
   line-height: 1;
 }
 
 .price-card__price sup {
-  margin-right: 3px;
+  flex: 0 0 auto;
   color: var(--price-accent);
   font-family: var(--font-mono);
-  font-size: 0.45em;
+  font-size: 0.38em;
+  font-weight: 500;
   letter-spacing: 0;
   vertical-align: top;
 }
 
 .price-card__price span {
-  margin-left: 5px;
+  flex: 0 0 auto;
+  margin-left: 2px;
   color: var(--ink-faint);
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 400;
   letter-spacing: 0.04em;
+}
+
+.price-card__price strong {
+  flex: 0 1 auto;
+  min-width: 0;
+  font: inherit;
+  letter-spacing: -0.06em;
+  font-size: 1.12em;
+}
+
+.price-card__minor {
+  font-size: 0.52em;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 1080px) and (min-width: 561px) {
+  .price-card__price {
+    font-size: clamp(24px, 3.4vw, 34px);
+  }
 }
 
 .price-card__features {
