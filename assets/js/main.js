@@ -318,19 +318,29 @@
         }).forEach(function (item) { item.remove(); });
         if (index < 2) {
           var excludedText = language === "fr"
-            ? "Hébergement et domaine non inclus"
+              ? "Domaine et hébergement/serveur non inclus"
             : language === "id"
-              ? "Hosting dan domain tidak termasuk"
-              : "Hosting and domain not included";
+              ? "Domain dan hosting/server tidak termasuk"
+              : "Domain and hosting/server not included";
           var excludedItem = document.createElement("li");
           excludedItem.textContent = excludedText;
           list.appendChild(excludedItem);
+        } else {
+          var includedText = language === "fr"
+            ? "Hébergement et domaine inclus pendant 1 an"
+            : language === "id"
+              ? "Hosting dan domain sudah termasuk selama 1 tahun"
+              : "Hosting and domain included for 1 year";
+          var includedItem = document.createElement("li");
+          includedItem.textContent = includedText;
+          list.appendChild(includedItem);
         }
       });
       document.querySelectorAll(".price-card__features").forEach(function (list, index) {
         if (index < 2) {
           Array.prototype.slice.call(list.children).filter(function (item) {
-            return /hosting|hébergement|domain|domaine/i.test(item.textContent);
+            return /hosting|hébergement|domain|domaine/i.test(item.textContent)
+              && !/not included|non inclus|tidak termasuk/i.test(item.textContent);
           }).forEach(function (item) { item.remove(); });
         }
       });
